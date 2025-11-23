@@ -6,92 +6,82 @@
   <title>Chandra Shekhar Rana | Data Engineer</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body data-theme="netflix">
+<body class="theme-netflix">
   <!-- Navbar -->
   <header class="navbar">
-    <div class="nav-left">
-      <div class="logo">CSR.</div>
-      <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-
-    <div class="nav-right">
-      <label for="theme-select" class="theme-label">Hero style:</label>
-      <select id="theme-select" class="theme-select">
-        <option value="netflix">Netflix</option>
-        <option value="cyberpunk">Cyberpunk</option>
-        <option value="minimal">Minimal</option>
-      </select>
-    </div>
+    <div class="logo">CSR.</div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
+
+  <!-- Style Switcher -->
+  <div class="style-switcher">
+    <span class="switcher-label">Hero style:</span>
+    <button class="style-chip active" data-style="netflix">Netflix</button>
+    <button class="style-chip" data-style="cyberpunk">Cyberpunk</button>
+    <button class="style-chip" data-style="minimal">Minimal</button>
+  </div>
 
   <main>
     <!-- Hero -->
     <section id="home" class="hero">
       <div class="hero-left">
-        <p class="hero-kicker">DATA ENGINEER • ETL • CLOUD</p>
-        <h1 class="hero-title">
-          Hi, I'm <span class="accent">Chandra Shekhar Rana</span>
-        </h1>
-        <p class="hero-subtitle">
+        <p class="eyebrow">DATA ENGINEER • ETL • CLOUD</p>
+        <h1 class="hero-title">Hi, I'm <span class="accent">Chandra Shekhar Rana</span></h1>
+        <p class="hero-text">
           I build reliable data pipelines on Azure, AWS & Databricks – from raw
-          files and APIs to analytics-ready data with automation, monitoring, and
-          incremental loads.
+          files and APIs to analytics-ready data with automation, monitoring,
+          and incremental loads.
         </p>
-
         <div class="hero-actions">
           <a href="#projects" class="btn primary">View Projects</a>
           <a href="#contact" class="btn ghost">Hire Me</a>
         </div>
-
         <div class="hero-meta">
           <span>📍 Dehradun, India</span>
           <span>📧 ranashekher857@gmail.com</span>
         </div>
+        <div class="hero-tags">
+          <span>Azure Data Factory</span>
+          <span>Databricks</span>
+          <span>PostgreSQL</span>
+        </div>
       </div>
 
       <div class="hero-right">
-        <div class="hero-pill-row">
-          <span class="pill">Azure Data Factory</span>
-          <span class="pill">Databricks</span>
-          <span class="pill">PostgreSQL</span>
+        <div class="hero-card">
+          <p class="card-label">Current</p>
+          <h3>Data Engineer (Contract)</h3>
+          <p class="muted">TehriHills Consultancy</p>
+          <p class="muted small">
+            ETL for APIs & Excel → PostgreSQL, powering dashboards with 40%+
+            faster performance.
+          </p>
         </div>
 
-        <div class="hero-cards">
-          <div class="hero-card">
-            <p class="hero-card-label">Current</p>
-            <h3>Data Engineer (Contract)</h3>
-            <p class="muted small">TehriHills Consultancy</p>
-            <p class="muted tiny">
-              ETL for APIs & Excel → PostgreSQL, powering dashboards with 40%+ faster
-              performance.
-            </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">20+</span>
+            <span class="stat-label">Pipelines automated</span>
           </div>
+          <div class="stat">
+            <span class="stat-number">1GB+</span>
+            <span class="stat-label">Data / day processed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">99.99%</span>
+            <span class="stat-label">Load accuracy</span>
+          </div>
+        </div>
 
-          <div class="hero-stats">
-            <div class="stat">
-              <span class="stat-number">20+</span>
-              <span class="stat-label">Pipelines automated</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">1GB+</span>
-              <span class="stat-label">Data / day processed</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">99.99%</span>
-              <span class="stat-label">Load accuracy</span>
-            </div>
-          </div>
-
-          <div class="hero-links">
-            <a href="https://github.com/Shekhaa" target="_blank">GitHub ↗</a>
-            <a href="https://www.linkedin.com/in/chandra-shekhar-ranaa/" target="_blank">LinkedIn ↗</a>
-          </div>
+        <div class="hero-links">
+          <a href="https://github.com/Shekhaa" target="_blank">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/chandra-shekhar-ranaa/" target="_blank">LinkedIn ↗</a>
         </div>
       </div>
     </section>
@@ -99,28 +89,31 @@
     <!-- About -->
     <section id="about" class="section">
       <div class="section-header">
+        <p class="section-eyebrow">PROFILE</p>
         <h2>About Me</h2>
         <p class="section-subtitle">
-          Data engineer focused on reliable, production-grade pipelines and clean data models.
+          Data engineer focused on reliable, production-grade pipelines and clean
+          data models.
         </p>
       </div>
-
       <div class="two-col">
         <p>
-          I work across the data lifecycle – ingestion, transformation, and orchestration. I’ve
-          built pipelines using Azure Data Factory, Databricks, AWS S3, and PostgreSQL, handling
-          hundreds of thousands of records with robust error handling and monitoring.
+          I work across the data lifecycle – ingestion, transformation, and
+          orchestration. I’ve built pipelines using Azure Data Factory, Databricks,
+          AWS S3, and PostgreSQL, handling hundreds of thousands of records with
+          robust error handling and monitoring.
         </p>
         <p>
           Recently I’ve automated 20+ ADF pipelines, implemented incremental loads,
           and optimised backend ETL for dashboards to eliminate lag during filtering.
-          I enjoy debugging broken pipelines, simplifying complex flows, and documenting
-          everything for teams.
+          I enjoy debugging broken pipelines, simplifying complex flows, and
+          documenting everything for teams.
         </p>
       </div>
 
       <div class="skills-grid">
         <div class="skills-card">
+          <p class="card-label">Stack</p>
           <h3>Core Skills</h3>
           <div class="chip-row">
             <span class="chip">Python</span>
@@ -130,6 +123,7 @@
           </div>
         </div>
         <div class="skills-card">
+          <p class="card-label">Platforms</p>
           <h3>Cloud & Tools</h3>
           <div class="chip-row">
             <span class="chip">Azure Data Factory</span>
@@ -140,7 +134,8 @@
           </div>
         </div>
         <div class="skills-card">
-          <h3>What I Do</h3>
+          <p class="card-label">What I do</p>
+          <h3>How I help</h3>
           <ul class="list">
             <li>Design ETL / ELT pipelines for files, APIs, and databases</li>
             <li>Incremental & delta loads for large datasets</li>
@@ -154,6 +149,7 @@
     <!-- Experience -->
     <section id="experience" class="section">
       <div class="section-header">
+        <p class="section-eyebrow">TRACK RECORD</p>
         <h2>Experience</h2>
         <p class="section-subtitle">Where I’ve been building pipelines.</p>
       </div>
@@ -163,9 +159,9 @@
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <h3>Data Engineer - Contract</h3>
-            <p class="muted small">TehriHills Consultancy · Remote · Jun 2025 – Present</p>
-            <ul class="list tiny">
-              <li>Built ETL to ingest daily API data with incremental loads.</li>
+            <p class="muted">TehriHills Consultancy · Remote · Jun 2025 – Present</p>
+            <ul class="list small">
+              <li>Built ETL solution to ingest daily API data with incremental loads.</li>
               <li>Ingested 15K+ record Excel files into PostgreSQL for backend services.</li>
               <li>Optimised dashboard backend to keep only useful data, reducing filter lag by 40%+.</li>
             </ul>
@@ -176,11 +172,11 @@
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <h3>Data Engineer</h3>
-            <p class="muted small">Adastra · Remote · Nov 2024 – Jun 2025</p>
-            <ul class="list tiny">
+            <p class="muted">Adastra · Remote · Nov 2024 – Jun 2025</p>
+            <ul class="list small">
               <li>Engineered & automated 20+ ingestion pipelines using Azure Data Factory.</li>
               <li>Processed ~1GB raw data daily into the bronze layer with 99.99% accuracy.</li>
-              <li>Refactored pipelines to improve efficiency by 30% with error handling & incremental loads.</li>
+              <li>Refactored pipelines to improve efficiency by 30% with robust error handling & incremental loads.</li>
             </ul>
           </div>
         </article>
@@ -189,8 +185,8 @@
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <h3>Associate Analyst</h3>
-            <p class="muted small">Deloitte · Hyderabad · Dec 2023 – Aug 2024</p>
-            <ul class="list tiny">
+            <p class="muted">Deloitte · Hyderabad · Dec 2023 – Aug 2024</p>
+            <ul class="list small">
               <li>Managed and configured AWS S3 buckets for scalable data storage.</li>
               <li>Automated Python-based data validation scripts to reduce manual work.</li>
             </ul>
@@ -202,6 +198,7 @@
     <!-- Projects -->
     <section id="projects" class="section">
       <div class="section-header">
+        <p class="section-eyebrow">CASE STUDIES</p>
         <h2>Projects</h2>
         <p class="section-subtitle">Selected work in ETL & data engineering.</p>
       </div>
@@ -213,8 +210,8 @@
           <h3>COVID-19 ETL Data Pipeline</h3>
           <p>
             End-to-end pipeline that extracts COVID-19 case data from an API,
-            parses JSON, transforms it using Python & PySpark in Databricks,
-            and writes structured outputs into Amazon S3 for analytics.
+            parses JSON, transforms it using Python & PySpark in Databricks, and
+            loads structured outputs into Amazon S3 for analytics.
           </p>
           <div class="project-links">
             <a href="https://github.com/Shekhaa/Etl-process" target="_blank">View Code ↗</a>
@@ -226,13 +223,15 @@
           <span class="project-tag">ADF · Databricks · Azure</span>
           <h3>End-to-End ETL Framework</h3>
           <p>
-            Reusable framework on Azure Data Factory + Databricks for ingesting
+            A reusable framework on Azure Data Factory + Databricks for ingesting
             Excel/JSON (20k+ records), landing in Blob Storage, transforming via
             PySpark, and writing curated outputs with triggers and monitoring.
           </p>
           <div class="project-links">
             <a href="https://github.com/Shekhaa/ETL_FRAMEWORK" target="_blank">View Code ↗</a>
-            <a href="https://youtu.be/a-4OkdsKDMU?si=KUDMnzsuHNqlYYCf" target="_blank">Watch Demo ▶</a>
+            <a href="https://youtu.be/a-4OkdsKDMU?si=KUDMnzsuHNqlYYCf" target="_blank">
+              Watch Demo ▶
+            </a>
           </div>
         </article>
 
@@ -255,6 +254,7 @@
     <!-- Contact -->
     <section id="contact" class="section section-contact">
       <div class="section-header">
+        <p class="section-eyebrow">LET’S TALK</p>
         <h2>Contact</h2>
         <p class="section-subtitle">
           Looking for a data engineer for your project or team? Let’s talk.
@@ -288,13 +288,8 @@
 
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              required
-              placeholder="Tell me about your project, timeline, and tech stack..."
-            ></textarea>
+            <textarea id="message" name="message" rows="4" required
+              placeholder="Tell me about your project, timeline, and tech stack..."></textarea>
           </div>
 
           <button type="submit" class="btn primary full">Send Message</button>
