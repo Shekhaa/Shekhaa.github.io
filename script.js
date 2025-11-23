@@ -1,39 +1,41 @@
-// 1) EmailJS init – yahan apna public key lagao
+// 1. Initialize EmailJS with your public key
 (function () {
   emailjs.init({
-    publicKey: "51MAJKgT5mcwlDeZg", // <- tumhara public key
+    publicKey: "51MAJKgT5mcwlDeZg", // <-- your public key
   });
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
-  // year update for footer
+  // Set year in footer
   const yearSpan = document.getElementById("year");
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
 
+  if (!form) return;
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    status.textContent = "Sending...";
+    if (status) status.textContent = "Sending your message...";
 
-    // 2) Yahan vo fields bhej rahe hain jo template me use ho rahe
-    const data = {
-      from_name: document.getElementById("name").value,   // {{from_name}}
-      email: document.getElementById("email").value,       // {{email}}  (Reply To)
-      message: document.getElementById("message").value,   // {{message}}
+    const payload = {
+      from_name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      message: document.getElementById("message").value,
     };
 
-    // 3) Yahan serviceID + templateID use ho raha hai
     emailjs
-      .send("service_iabxg5n", "template_3smajth", data)
+      .send("service_iabxg5n", "template_3smajth", payload)
       .then(() => {
-        status.textContent = "Thanks! Your message has been sent.";
+        if (status) status.textContent = "Thank you! Your message has been sent 🚀";
         form.reset();
       })
       .catch((error) => {
         console.error("EmailJS error:", error);
-        status.textContent = "Kuch galat ho gaya, later try karo.";
+        if (status)
+          status.textContent =
+            "Kuch issue aa gaya. Please thodi der baad phir se try karo 🙏";
       });
   });
 });
