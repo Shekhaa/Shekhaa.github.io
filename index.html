@@ -1,390 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chandra Shekhar Rana | Data Engineer</title>
-    <style>
-        /* --- CSS VARIABLES (Easy to change colors) --- */
-        :root {
-            --bg-dark: #0d1117;       /* GitHub Dark Background */
-            --bg-panel: #161b22;      /* Panel/Card Background */
-            --border: #30363d;        /* Subtle Border */
-            --accent: #58a6ff;        /* GitHub Blue */
-            --accent-sec: #238636;    /* GitHub Green */
-            --text-main: #c9d1d9;     /* Light Text */
-            --text-muted: #8b949e;    /* Grey Text */
-            --font-mono: 'Courier New', Courier, monospace;
-            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: var(--font-sans);
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            display: flex;
-            height: 100vh;
-            overflow: hidden; /* Prevent body scroll, use inner scroll */
-        }
-
-        /* --- LAYOUT: SPLIT SCREEN --- */
-        
-        /* Left Sidebar (Static) */
-        aside {
-            width: 300px;
-            background-color: var(--bg-panel);
-            border-right: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            padding: 40px 30px;
-            justify-content: space-between;
-            flex-shrink: 0;
-        }
-
-        /* Right Content (Scrollable) */
-        main {
-            flex-grow: 1;
-            overflow-y: auto; /* Only this part scrolls */
-            padding: 60px 80px;
-            scroll-behavior: smooth;
-        }
-
-        /* --- SIDEBAR STYLING --- */
-        .profile-header h1 {
-            font-size: 1.8rem;
-            color: white;
-            line-height: 1.2;
-            margin-bottom: 10px;
-        }
-        
-        .role-badge {
-            display: inline-block;
-            background: rgba(88, 166, 255, 0.15);
-            color: var(--accent);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-family: var(--font-mono);
-            border: 1px solid rgba(88, 166, 255, 0.3);
-            margin-bottom: 30px;
-        }
-
-        .nav-links a {
-            display: block;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: white;
-            transform: translateX(10px); /* Slide effect */
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: auto;
-        }
-
-        .social-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            border: 1px solid var(--border);
-            padding: 8px 12px;
-            border-radius: 6px;
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* --- MAIN CONTENT STYLING --- */
-        section {
-            margin-bottom: 100px;
-            max-width: 900px;
-        }
-
-        h2 {
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-        }
-
-        h2::before {
-            content: '#';
-            color: var(--accent);
-            margin-right: 10px;
-            font-family: var(--font-mono);
-        }
-
-        p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-
-        /* --- TECH STACK GRID --- */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 15px;
-        }
-
-        .tech-item {
-            background: var(--bg-panel);
-            border: 1px solid var(--border);
-            padding: 15px;
-            text-align: center;
-            border-radius: 8px;
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            color: var(--text-main);
-            transition: 0.2s;
-        }
-
-        .tech-item:hover {
-            border-color: var(--accent);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        /* --- PROJECT CARDS (Terminal Style) --- */
-        .project-card {
-            background: var(--bg-panel);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
-
-        .card-header {
-            background: #21262d;
-            padding: 10px 15px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card-dots {
-            display: flex;
-            gap: 6px;
-        }
-
-        .dot { width: 10px; height: 10px; border-radius: 50%; }
-        .red { background: #ff5f56; }
-        .yellow { background: #ffbd2e; }
-        .green { background: #27c93f; }
-
-        .card-body {
-            padding: 25px;
-        }
-
-        .card-body h3 {
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        .tech-tags {
-            margin-top: 15px;
-        }
-
-        .tag {
-            font-size: 0.8rem;
-            color: var(--accent);
-            margin-right: 10px;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 8px 16px;
-            background: var(--accent-sec);
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .btn:hover { background: #2ea043; }
-
-        /* --- TIMELINE (Experience) --- */
-        .timeline-item {
-            border-left: 2px solid var(--border);
-            padding-left: 20px;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 5px;
-            width: 10px;
-            height: 10px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
-
-        .time-role { font-weight: bold; color: white; font-size: 1.1rem; }
-        .time-company { color: var(--accent); font-family: var(--font-mono); margin-bottom: 5px; display: block; }
-        .time-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; display: block; }
-
-        /* --- MOBILE RESPONSIVE --- */
-        @media (max-width: 768px) {
-            body { flex-direction: column; overflow: auto; }
-            aside { width: 100%; height: auto; padding: 20px; border-right: none; border-bottom: 1px solid var(--border); }
-            main { padding: 40px 20px; }
-            .profile-header { text-align: center; }
-            .nav-links { display: none; /* Hide nav on mobile for simplicity, or make hamburger */ }
-            .social-links { justify-content: center; margin-top: 20px; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chandra Shekhar Rana | Data Engineer</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body data-theme="netflix">
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="logo">CSR.</div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
 
-    <aside>
-        <div class="profile-header">
-            <h1>Chandra Shekhar<br>Rana</h1>
-            <span class="role-badge">DATA ENGINEER</span>
-            <p style="margin-top: 15px; font-size: 0.95rem;">
-                Building robust ETL pipelines and cloud data architectures.
-            </p>
+    <div class="nav-right">
+      <label for="theme-select" class="theme-label">Hero style:</label>
+      <select id="theme-select" class="theme-select">
+        <option value="netflix">Netflix</option>
+        <option value="cyberpunk">Cyberpunk</option>
+        <option value="minimal">Minimal</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="hero-left">
+        <p class="hero-kicker">DATA ENGINEER • ETL • CLOUD</p>
+        <h1 class="hero-title">
+          Hi, I'm <span class="accent">Chandra Shekhar Rana</span>
+        </h1>
+        <p class="hero-subtitle">
+          I build reliable data pipelines on Azure, AWS & Databricks – from raw
+          files and APIs to analytics-ready data with automation, monitoring, and
+          incremental loads.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn primary">View Projects</a>
+          <a href="#contact" class="btn ghost">Hire Me</a>
         </div>
 
-        <nav class="nav-links">
-            <a href="#about">01. About</a>
-            <a href="#experience">02. Experience</a>
-            <a href="#projects">03. Projects</a>
-            <a href="#contact">04. Contact</a>
-        </nav>
-
-        <div class="social-links">
-            <a href="https://github.com/Shekhaa" target="_blank">GitHub</a>
-            <a href="https://linkedin.com/in/chandra-shekhar-ranaa" target="_blank">LinkedIn</a>
-            <a href="mailto:ranashekher857@gmail.com">Email</a>
+        <div class="hero-meta">
+          <span>📍 Dehradun, India</span>
+          <span>📧 ranashekher857@gmail.com</span>
         </div>
-    </aside>
+      </div>
 
-    <main>
-        
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                Namaste! I am a Data Engineer based in Dehradun, focused on designing reliable production-grade pipelines.
+      <div class="hero-right">
+        <div class="hero-pill-row">
+          <span class="pill">Azure Data Factory</span>
+          <span class="pill">Databricks</span>
+          <span class="pill">PostgreSQL</span>
+        </div>
+
+        <div class="hero-cards">
+          <div class="hero-card">
+            <p class="hero-card-label">Current</p>
+            <h3>Data Engineer (Contract)</h3>
+            <p class="muted small">TehriHills Consultancy</p>
+            <p class="muted tiny">
+              ETL for APIs & Excel → PostgreSQL, powering dashboards with 40%+ faster
+              performance.
             </p>
-            <p>
-                Currently, I work at <strong>TehriHills Consultancy</strong>, optimizing backend services and ensuring 99.9% data accuracy. I specialize in moving data from messy raw files into clean, analytical models using Python, SQL, and Azure.
-            </p>
-            
-            <div style="margin-top: 30px;">
-                <h3 style="color:white; margin-bottom: 15px; font-size: 1.1rem;">Tech Stack</h3>
-                <div class="tech-grid">
-                    <div class="tech-item">Python</div>
-                    <div class="tech-item">PostgreSQL</div>
-                    <div class="tech-item">Azure ADF</div>
-                    <div class="tech-item">PySpark</div>
-                    <div class="tech-item">Databricks</div>
-                    <div class="tech-item">AWS S3</div>
-                    <div class="tech-item">Git</div>
-                    <div class="tech-item">Excel to SQL</div>
-                </div>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">20+</span>
+              <span class="stat-label">Pipelines automated</span>
             </div>
-        </section>
-
-        <section id="experience">
-            <h2>Experience</h2>
-            
-            <div class="timeline-item">
-                <span class="time-role">Data Engineer</span>
-                <span class="time-company">TehriHills Consultancy (Contract)</span>
-                <span class="time-date">Jun 2025 – Present</span>
-                <p>Reduced dashboard lag by 40% by optimizing PostgreSQL queries and automating API ingestion.</p>
+            <div class="stat">
+              <span class="stat-number">1GB+</span>
+              <span class="stat-label">Data / day processed</span>
             </div>
-
-            <div class="timeline-item">
-                <span class="time-role">Data Engineer</span>
-                <span class="time-company">Adastra</span>
-                <span class="time-date">Nov 2024 – Jun 2025</span>
-                <p>Automated 20+ ADF pipelines processing 1GB+ daily. Implemented incremental loads for 99.99% accuracy.</p>
+            <div class="stat">
+              <span class="stat-number">99.99%</span>
+              <span class="stat-label">Load accuracy</span>
             </div>
+          </div>
 
-            <div class="timeline-item">
-                <span class="time-role">Associate Analyst</span>
-                <span class="time-company">Deloitte</span>
-                <span class="time-date">Dec 2023 – Aug 2024</span>
-                <p>Managed AWS S3 buckets and wrote Python validation scripts to reduce manual data checks.</p>
+          <div class="hero-links">
+            <a href="https://github.com/Shekhaa" target="_blank">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/chandra-shekhar-ranaa/" target="_blank">LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <h2>About Me</h2>
+        <p class="section-subtitle">
+          Data engineer focused on reliable, production-grade pipelines and clean data models.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <p>
+          I work across the data lifecycle – ingestion, transformation, and orchestration. I’ve
+          built pipelines using Azure Data Factory, Databricks, AWS S3, and PostgreSQL, handling
+          hundreds of thousands of records with robust error handling and monitoring.
+        </p>
+        <p>
+          Recently I’ve automated 20+ ADF pipelines, implemented incremental loads,
+          and optimised backend ETL for dashboards to eliminate lag during filtering.
+          I enjoy debugging broken pipelines, simplifying complex flows, and documenting
+          everything for teams.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skills-card">
+          <h3>Core Skills</h3>
+          <div class="chip-row">
+            <span class="chip">Python</span>
+            <span class="chip">SQL (PostgreSQL)</span>
+            <span class="chip">PySpark</span>
+            <span class="chip">Spark SQL</span>
+          </div>
+        </div>
+        <div class="skills-card">
+          <h3>Cloud & Tools</h3>
+          <div class="chip-row">
+            <span class="chip">Azure Data Factory</span>
+            <span class="chip">Azure Blob</span>
+            <span class="chip">Databricks</span>
+            <span class="chip">AWS S3 / EC2</span>
+            <span class="chip">Git & CI/CD</span>
+          </div>
+        </div>
+        <div class="skills-card">
+          <h3>What I Do</h3>
+          <ul class="list">
+            <li>Design ETL / ELT pipelines for files, APIs, and databases</li>
+            <li>Incremental & delta loads for large datasets</li>
+            <li>Data validation, quality checks & observability</li>
+            <li>Optimised data models for reporting dashboards</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section">
+      <div class="section-header">
+        <h2>Experience</h2>
+        <p class="section-subtitle">Where I’ve been building pipelines.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Data Engineer - Contract</h3>
+            <p class="muted small">TehriHills Consultancy · Remote · Jun 2025 – Present</p>
+            <ul class="list tiny">
+              <li>Built ETL to ingest daily API data with incremental loads.</li>
+              <li>Ingested 15K+ record Excel files into PostgreSQL for backend services.</li>
+              <li>Optimised dashboard backend to keep only useful data, reducing filter lag by 40%+.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Data Engineer</h3>
+            <p class="muted small">Adastra · Remote · Nov 2024 – Jun 2025</p>
+            <ul class="list tiny">
+              <li>Engineered & automated 20+ ingestion pipelines using Azure Data Factory.</li>
+              <li>Processed ~1GB raw data daily into the bronze layer with 99.99% accuracy.</li>
+              <li>Refactored pipelines to improve efficiency by 30% with error handling & incremental loads.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Associate Analyst</h3>
+            <p class="muted small">Deloitte · Hyderabad · Dec 2023 – Aug 2024</p>
+            <ul class="list tiny">
+              <li>Managed and configured AWS S3 buckets for scalable data storage.</li>
+              <li>Automated Python-based data validation scripts to reduce manual work.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="section-header">
+        <h2>Projects</h2>
+        <p class="section-subtitle">Selected work in ETL & data engineering.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <span class="project-tag">ETL · AWS · PySpark</span>
+          <h3>COVID-19 ETL Data Pipeline</h3>
+          <p>
+            End-to-end pipeline that extracts COVID-19 case data from an API,
+            parses JSON, transforms it using Python & PySpark in Databricks,
+            and writes structured outputs into Amazon S3 for analytics.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/Shekhaa/Etl-process" target="_blank">View Code ↗</a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <span class="project-tag">ADF · Databricks · Azure</span>
+          <h3>End-to-End ETL Framework</h3>
+          <p>
+            Reusable framework on Azure Data Factory + Databricks for ingesting
+            Excel/JSON (20k+ records), landing in Blob Storage, transforming via
+            PySpark, and writing curated outputs with triggers and monitoring.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/Shekhaa/ETL_FRAMEWORK" target="_blank">View Code ↗</a>
+            <a href="https://youtu.be/a-4OkdsKDMU?si=KUDMnzsuHNqlYYCf" target="_blank">Watch Demo ▶</a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <span class="project-tag">ADF · Incremental Load</span>
+          <h3>ADF Ingestion Pipelines</h3>
+          <p>
+            Set of 20+ Azure Data Factory pipelines orchestrating ingestion from
+            raw sources into bronze layers with incremental patterns, error
+            handling, and alerting to minimise failed runs.
+          </p>
+          <div class="project-links">
+            <a href="#contact">Discuss This Project →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section-contact">
+      <div class="section-header">
+        <h2>Contact</h2>
+        <p class="section-subtitle">
+          Looking for a data engineer for your project or team? Let’s talk.
+        </p>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-info">
+          <h3>Let’s build your next pipeline</h3>
+          <p>
+            I’m available for remote roles, freelance projects, and consulting on
+            ETL/ELT, ADF, Databricks and data platform design.
+          </p>
+          <ul class="list small">
+            <li>📧 <strong>ranashekher857@gmail.com</strong></li>
+            <li>📱 <strong>+91-9548492910</strong></li>
+          </ul>
+        </div>
+
+        <form id="contact-form" class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input id="name" name="name" type="text" required />
             </div>
-        </section>
-
-        <section id="projects">
-            <h2>Selected Projects</h2>
-
-            <div class="project-card">
-                <div class="card-header">
-                    <span style="font-family: var(--font-mono); font-size: 0.8rem; color: #8b949e;">covid_etl_pipeline.py</span>
-                    <div class="card-dots">
-                        <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h3>COVID-19 ETL Pipeline</h3>
-                    <p>An end-to-end pipeline extracting data from APIs, transforming JSON via PySpark in Databricks, and loading into AWS S3 for analytics.</p>
-                    <div class="tech-tags">
-                        <span class="tag">#AWS</span>
-                        <span class="tag">#PySpark</span>
-                        <span class="tag">#Databricks</span>
-                    </div>
-                    <a href="https://github.com/Shekhaa/Etl-process" class="btn">View Source</a>
-                </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input id="email" name="email" type="email" required />
             </div>
+          </div>
 
-            <div class="project-card">
-                <div class="card-header">
-                    <span style="font-family: var(--font-mono); font-size: 0.8rem; color: #8b949e;">azure_framework.json</span>
-                    <div class="card-dots">
-                        <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h3>Azure ETL Framework</h3>
-                    <p>Reusable ADF + Databricks framework for ingesting 20k+ Excel records daily. Includes error handling, alerting, and Blob storage integration.</p>
-                    <div class="tech-tags">
-                        <span class="tag">#AzureDataFactory</span>
-                        <span class="tag">#Python</span>
-                        <span class="tag">#Automation</span>
-                    </div>
-                    <a href="https://github.com/Shekhaa/ETL_FRAMEWORK" class="btn">View Source</a>
-                </div>
-            </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              placeholder="Tell me about your project, timeline, and tech stack..."
+            ></textarea>
+          </div>
 
-        </section>
+          <button type="submit" class="btn primary full">Send Message</button>
+          <p id="form-status" class="form-status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-        <section id="contact">
-            <h2>Get In Touch</h2>
-            <p>
-                Currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-            </p>
-            <a href="mailto:ranashekher857@gmail.com" class="btn" style="background: transparent; border: 1px solid var(--accent); color: var(--accent);">Say Hello</a>
-        </section>
+  <footer class="footer">
+    <span>© <span id="year"></span> Chandra Shekhar Rana. All rights reserved.</span>
+  </footer>
 
-        <footer style="margin-top: 50px; font-size: 0.8rem; color: var(--text-muted); padding-bottom: 20px;">
-            <p>© 2025 Chandra Shekhar Rana. Built with HTML & CSS.</p>
-        </footer>
-
-    </main>
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
