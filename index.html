@@ -9,236 +9,285 @@
 <body>
   <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">CSR</div>
-    <nav>
+    <div class="logo">CSR.</div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
       <a href="#about">About</a>
-      <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
-      <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
     <!-- Hero -->
-    <section class="hero" id="home">
-      <div class="hero-text">
-        <h1>Hi, I'm <span class="accent">Chandra Shekhar Rana</span></h1>
-        <p class="subtitle">
-          Data Engineer from Dehradun, India — building reliable, scalable data pipelines on Azure, AWS & Databricks.
+    <section id="home" class="hero">
+      <div class="hero-left">
+        <p class="hello">👋 Namaste, I’m</p>
+        <h1>Chandra Shekhar <span class="accent">Rana</span></h1>
+        <p class="role">Data Engineer • ETL & Cloud Pipelines</p>
+        <p class="hero-text">
+          I design and build data pipelines on Azure, AWS & Databricks – from raw
+          files and APIs to analytics-ready datasets with monitoring, automation,
+          and incremental loads.
         </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn primary">View My Work</a>
-          <a href="#services" class="btn secondary">Hire Me as a Resource</a>
+        <div class="hero-actions">
+          <a href="#projects" class="btn primary">View Projects</a>
+          <a href="#contact" class="btn ghost">Hire Me</a>
+        </div>
+        <div class="hero-meta">
+          <span>📍 Dehradun, India</span>
+          <span>📧 ranashekher857@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <h3>Current Role</h3>
+          <p>Data Engineer (Contract)</p>
+          <p class="muted">TehriHills Consultancy</p>
+          <p class="muted small">
+            ETL for APIs & Excel → PostgreSQL, powering dashboards with 40%+
+            faster performance.
+          </p>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">20+</span>
+            <span class="stat-label">Pipelines automated</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">1GB+</span>
+            <span class="stat-label">Data processed daily</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">99.99%</span>
+            <span class="stat-label">Load accuracy</span>
+          </div>
         </div>
 
         <div class="hero-links">
-          <!-- TODO: apna LinkedIn URL yahan daal -->
-          <a href="https://github.com/Shekhaa" target="_blank">GitHub</a>
-          <span>•</span>
-          <a href="#" target="_blank">LinkedIn</a>
-          <span>•</span>
-          <a href="mailto:Ranashekher857@gmail.com">Email</a>
+          <a href="https://github.com/Shekhaa" target="_blank">GitHub ↗</a>
+          <!-- Add your LinkedIn link here -->
+          <a href="https://www.linkedin.com/in/chandra-shekhar-ranaa/" target="_blank">LinkedIn ↗</a>
         </div>
-
-        <p class="hero-meta">
-          2+ years working with ADF, Databricks, PySpark, AWS S3, and production ETL/ELT pipelines.
-        </p>
       </div>
     </section>
 
     <!-- About -->
     <section id="about" class="section">
-      <h2>About Me</h2>
-      <p>
-        I'm a Data Engineer with experience in designing and building end-to-end ETL pipelines, 
-        data ingestion frameworks, and analytics-ready data models. I’ve worked across Azure, AWS, 
-        Databricks and on-prem ecosystems, focusing on making data pipelines reliable, efficient 
-        and easy to monitor.
-      </p>
-      <p>
-        I enjoy taking messy real-world data, applying the right architecture and transformations,
-        and exposing it in a way that helps downstream analytics & dashboards run faster and smoother.
-      </p>
-    </section>
+      <div class="section-header">
+        <h2>About Me</h2>
+        <p class="section-subtitle">
+          Data engineer focused on reliable, production-grade pipelines and clean
+          data models.
+        </p>
+      </div>
+      <div class="two-col">
+        <p>
+          I work across the data lifecycle – ingestion, transformation, and
+          orchestration. I’ve built pipelines using Azure Data Factory, Databricks,
+          AWS S3, and PostgreSQL, handling hundreds of thousands of records with
+          robust error handling and monitoring.:contentReference[oaicite:1]{index=1}
+        </p>
+        <p>
+          My recent work includes automating 20+ ADF pipelines, implementing
+          incremental loads, and optimising backend ETL for dashboards to remove
+          lag during filtering. I enjoy debugging broken pipelines, simplifying
+          complex flows, and documenting everything for teams.
+        </p>
+      </div>
 
-    <!-- Skills -->
-    <section id="skills" class="section">
-      <h2>Skills</h2>
-      <div class="chip-container">
-        <!-- Programming -->
-        <span class="chip">Python</span>
-        <span class="chip">SQL (PostgreSQL)</span>
-        <span class="chip">JavaScript</span>
-        <span class="chip">C++</span>
-
-        <!-- Big Data / Platforms -->
-        <span class="chip">Apache Spark</span>
-        <span class="chip">PySpark</span>
-        <span class="chip">Spark SQL</span>
-
-        <!-- Cloud -->
-        <span class="chip">Azure Data Factory</span>
-        <span class="chip">Azure Databricks</span>
-        <span class="chip">Azure Blob Storage</span>
-        <span class="chip">AWS S3</span>
-        <span class="chip">AWS EC2</span>
-
-        <!-- DE Concepts -->
-        <span class="chip">ETL / ELT</span>
-        <span class="chip">Data Ingestion</span>
-        <span class="chip">Data Lakes</span>
-        <span class="chip">Git</span>
-        <span class="chip">CI/CD</span>
+      <div class="skills-grid">
+        <div class="skills-card">
+          <h3>Core Skills</h3>
+          <div class="chip-row">
+            <span class="chip">Python</span>
+            <span class="chip">SQL (PostgreSQL)</span>
+            <span class="chip">PySpark</span>
+            <span class="chip">Spark SQL</span>
+          </div>
+        </div>
+        <div class="skills-card">
+          <h3>Cloud & Tools</h3>
+          <div class="chip-row">
+            <span class="chip">Azure ADF</span>
+            <span class="chip">Azure Blob</span>
+            <span class="chip">Databricks</span>
+            <span class="chip">AWS S3 / EC2</span>
+            <span class="chip">Git & CI/CD</span>
+          </div>
+        </div>
+        <div class="skills-card">
+          <h3>What I Do</h3>
+          <ul class="list">
+            <li>Design ETL / ELT pipelines for files, APIs, and databases</li>
+            <li>Incremental & delta loads for large datasets</li>
+            <li>Data validation, quality checks & observability</li>
+            <li>Optimised data models for reporting dashboards</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- Experience -->
     <section id="experience" class="section">
-      <h2>Experience</h2>
+      <div class="section-header">
+        <h2>Experience</h2>
+        <p class="section-subtitle">Where I’ve been building pipelines.</p>
+      </div>
+
       <div class="timeline">
-
         <article class="timeline-item">
-          <div class="timeline-header">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
             <h3>Data Engineer - Contract</h3>
-            <span class="timeline-company">TehriHills Consultancy (Remote)</span>
+            <p class="muted">TehriHills Consultancy · Remote · Jun 2025 – Present</p>
+            <ul class="list small">
+              <li>Built ETL solution to ingest daily API data with incremental loads.</li>
+              <li>Ingested 15K+ record Excel files into PostgreSQL for backend services.</li>
+              <li>Optimised dashboard backend to keep only useful data, reducing lag
+                during filters by 40%+.</li>
+            </ul>
           </div>
-          <span class="timeline-date">Jun 2025 – Present</span>
-          <ul>
-            <li>Developed ETL solution to fetch data from APIs using incremental loads for daily new files.</li>
-            <li>Ingested Excel files (15K+ records) into PostgreSQL for backend services, improving performance by 40%+.</li>
-            <li>Supported front-end dashboards by building ETL jobs that store only useful data, reducing lag during filters.</li>
-          </ul>
         </article>
 
         <article class="timeline-item">
-          <div class="timeline-header">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
             <h3>Data Engineer</h3>
-            <span class="timeline-company">Adastra (Remote)</span>
+            <p class="muted">Adastra · Remote · Nov 2024 – Jun 2025</p>
+            <ul class="list small">
+              <li>Engineered & automated 20+ ingestion pipelines using Azure Data Factory.</li>
+              <li>Processed ~1GB raw data daily into the bronze layer with 99.99% accuracy.</li>
+              <li>Refactored pipelines to improve efficiency by 30% with robust error handling
+                and incremental loading strategies.</li>
+            </ul>
           </div>
-          <span class="timeline-date">Nov 2024 – Jun 2025</span>
-          <ul>
-            <li>Engineered & automated 20+ data ingestion pipelines using Azure Data Factory (ADF) with 99.99% accuracy.</li>
-            <li>Refactored legacy pipelines, improving efficiency by 30% through incremental loading & better error handling.</li>
-            <li>Processed ~1GB of raw data daily for multiple downstream analytics teams.</li>
-          </ul>
         </article>
 
         <article class="timeline-item">
-          <div class="timeline-header">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
             <h3>Associate Analyst</h3>
-            <span class="timeline-company">Deloitte (Hyderabad)</span>
+            <p class="muted">Deloitte · Hyderabad · Dec 2023 – Aug 2024</p>
+            <ul class="list small">
+              <li>Managed and configured AWS S3 buckets for scalable data storage.</li>
+              <li>Automated Python-based data validation scripts to reduce manual work.</li>
+            </ul>
           </div>
-          <span class="timeline-date">Dec 2023 – Aug 2024</span>
-          <ul>
-            <li>Managed and configured AWS S3 buckets for scalable cloud-based data storage solutions.</li>
-            <li>Automated Python-based data validation scripts, significantly reducing manual QA work.</li>
-          </ul>
         </article>
-
       </div>
     </section>
 
     <!-- Projects -->
     <section id="projects" class="section">
-      <h2>Projects</h2>
+      <div class="section-header">
+        <h2>Projects</h2>
+        <p class="section-subtitle">Selected work in ETL & data engineering.</p>
+      </div>
+
       <div class="projects-grid">
-
+        <!-- Project 1: Covid ETL -->
         <article class="project-card">
-          <h3>End-to-End Data Pipeline (Azure)</h3>
+          <span class="project-tag">ETL · AWS · PySpark</span>
+          <h3>COVID-19 ETL Data Pipeline</h3>
           <p>
-            Built an end-to-end ETL pipeline using Azure Data Factory to ingest Excel/JSON files (20K+ records) into 
-            Azure Blob Storage, triggered Databricks notebooks for transformations, and stored the final curated data.
+            End-to-end pipeline that extracts COVID-19 case data from an API,
+            parses JSON, transforms it using Python & PySpark in Databricks, and
+            loads structured outputs into Amazon S3 for analytics.:contentReference[oaicite:2]{index=2}
           </p>
-          <ul class="project-highlights">
-            <li>Orchestrated reliable runs with ADF triggers and monitoring.</li>
-            <li>Reduced pipeline failures by ~50% with better validation and retry logic.</li>
-          </ul>
-          <!-- Add GitHub link if you have -->
-          <!-- <a href="#" target="_blank">View Code</a> -->
+          <div class="project-links">
+            <a href="https://github.com/Shekhaa/Etl-process" target="_blank">View Code ↗</a>
+          </div>
         </article>
 
+        <!-- Project 2: ETL Framework -->
         <article class="project-card">
-          <h3>COVID-19 ETL Data Pipeline (AWS + Databricks)</h3>
+          <span class="project-tag">ADF · Databricks · Azure</span>
+          <h3>End-to-End ETL Framework</h3>
           <p>
-            Designed an ETL pipeline to extract COVID-19 case data from public APIs, transform JSON responses using 
-            Python & PySpark in Databricks, and load curated data into Amazon S3.
+            A reusable framework on Azure Data Factory + Databricks for ingesting
+            Excel/JSON (20k+ records), landing in Blob Storage, transforming via
+            PySpark, and writing curated outputs with triggers and monitoring.
           </p>
-          <ul class="project-highlights">
-            <li>Handled nested JSON and schema evolution.</li>
-            <li>Optimized transformations for faster downstream analytics.</li>
-          </ul>
+          <div class="project-links">
+            <a href="https://github.com/Shekhaa/ETL_FRAMEWORK" target="_blank">View Code ↗</a>
+            <a href="https://youtu.be/a-4OkdsKDMU?si=KUDMnzsuHNqlYYCf" target="_blank">
+              Watch Demo ▶
+            </a>
+          </div>
         </article>
 
+        <!-- Project 3: ADF Pipelines -->
+        <article class="project-card">
+          <span class="project-tag">ADF · Incremental Load</span>
+          <h3>ADF Ingestion Pipelines</h3>
+          <p>
+            Set of 20+ Azure Data Factory pipelines orchestrating ingestion from
+            raw sources into bronze layers with incremental patterns, error
+            handling, and alerting to minimise failed runs.
+          </p>
+          <div class="project-links">
+            <a href="#contact">Discuss This Project →</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- Services / Resource Work -->
-    <section id="services" class="section">
-      <h2>Services – Hire Me as a Data Engineer</h2>
-      <p>
-        I’m available for remote contract / freelance work as a Data Engineer. I can help you with:
-      </p>
-      <div class="services-grid">
-        <article class="service-card">
-          <h3>ETL / ELT Pipelines</h3>
-          <p>
-            Design and implement production-grade ETL/ELT pipelines using Azure Data Factory, Databricks, PySpark, and SQL.
-          </p>
-        </article>
-
-        <article class="service-card">
-          <h3>Cloud Data Platforms</h3>
-          <p>
-            Set up and optimize data workflows on Azure (Blob, ADF, Databricks) and AWS (S3, EC2) including storage design.
-          </p>
-        </article>
-
-        <article class="service-card">
-          <h3>Data Validation & Monitoring</h3>
-          <p>
-            Build automated validation scripts, logging, and monitoring to keep pipelines reliable and easy to debug.
-          </p>
-        </article>
+    <!-- Contact -->
+    <section id="contact" class="section section-contact">
+      <div class="section-header">
+        <h2>Contact</h2>
+        <p class="section-subtitle">
+          Looking for a data engineer for your project or team? Let’s talk.
+        </p>
       </div>
-      <p class="services-cta">
-        Want to discuss your use case? Use the contact form below and I’ll get back to you.
-      </p>
-    </section>
 
-    <!-- Contact (EmailJS for SMTP-style send) -->
-    <section id="contact" class="section">
-      <h2>Contact Me</h2>
-      <p>Interested in working with me or need help with a data project? Send me a message.</p>
+      <div class="contact-layout">
+        <div class="contact-info">
+          <h3>Let’s build your next pipeline</h3>
+          <p>
+            I’m available for remote roles, freelance projects, and consulting on
+            ETL/ELT, ADF, Databricks and data platform design.
+          </p>
+          <ul class="list small">
+            <li>📧 <strong>ranashekher857@gmail.com</strong></li>
+            <li>📱 <strong>+91-9548492910</strong></li>
+          </ul>
+        </div>
 
-     <form id="contact-form">
-  <div class="form-group">
-    <label for="name">Your Name</label>
-    <input id="name" name="name" type="text" required />
-  </div>
+        <form id="contact-form" class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+          </div>
 
-  <div class="form-group">
-    <label for="email">Your Email</label>
-    <input id="email" name="email" type="email" required />
-  </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required
+              placeholder="Tell me about your project, timeline, and tech stack..."></textarea>
+          </div>
 
-  <div class="form-group">
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="4" required></textarea>
-  </div>
-
-  <button type="submit" class="btn primary">Send Message</button>
-  <p id="form-status" class="form-status"></p>
-</form>
+          <button type="submit" class="btn primary full">Send Message</button>
+          <p id="form-status" class="form-status"></p>
+        </form>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
-    © <span id="year"></span> Chandra Shekhar Rana. All rights reserved.
+    <span>© <span id="year"></span> Chandra Shekhar Rana. All rights reserved.</span>
   </footer>
 
-  <!-- EmailJS library -->
+  <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
